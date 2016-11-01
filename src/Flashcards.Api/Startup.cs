@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Flashcards.Api.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +19,9 @@ namespace Flashcards.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            // User defined services
+            services.AddSingleton<IFlashcardRepository, FlashcardRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,10 +45,10 @@ namespace Flashcards.Api
                     context.Request.Path = "/index.html";
                     await next();
                 }
-
-                app.UseMvc();
-                app.UseStaticFiles();
             });
+
+            app.UseMvc();
+            app.UseStaticFiles();
         }
     }
 }
