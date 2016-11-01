@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Flashcards.Api", "src\Flashcards.Api\Flashcards.Api.xproj", "{023DD704-F44C-4609-8458-BBA140C9ED76}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Flashcard.Web", "src\Flashcard.Web\Flashcard.Web.xproj", "{FC6D88E2-9EC1-4D55-9D22-A0C0AFD3010D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +24,16 @@ Global
 		{023DD704-F44C-4609-8458-BBA140C9ED76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{023DD704-F44C-4609-8458-BBA140C9ED76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{023DD704-F44C-4609-8458-BBA140C9ED76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC6D88E2-9EC1-4D55-9D22-A0C0AFD3010D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC6D88E2-9EC1-4D55-9D22-A0C0AFD3010D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC6D88E2-9EC1-4D55-9D22-A0C0AFD3010D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC6D88E2-9EC1-4D55-9D22-A0C0AFD3010D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{023DD704-F44C-4609-8458-BBA140C9ED76} = {29F66895-C73B-4AA6-B1D0-EFEBE5CEEF61}
+		{FC6D88E2-9EC1-4D55-9D22-A0C0AFD3010D} = {29F66895-C73B-4AA6-B1D0-EFEBE5CEEF61}
 	EndGlobalSection
 EndGlobal
