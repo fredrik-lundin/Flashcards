@@ -28,8 +28,8 @@ namespace Flashcards.Api.Services
                     WordToCheck = "Spise",
                     WordAnswerTitle = "Eat, Dine",
                     WordAnswerType = "verb",
-                    SentanceFrom = "Jeg har en ny sykkel",
-                    SentanceTo = "Du må spise nå"
+                    SentanceFrom = "Du må spise nå",
+                    SentanceTo = "You have to eat now"
                 }
             };
 
