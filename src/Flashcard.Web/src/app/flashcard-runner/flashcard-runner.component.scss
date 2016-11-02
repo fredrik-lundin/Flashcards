@@ -6,6 +6,8 @@ md-card {
 
 .cards-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .in-a-sentance-title {
