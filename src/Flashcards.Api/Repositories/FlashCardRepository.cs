@@ -2,12 +2,18 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using Flashcards.Api.Models;
+using Flashcards.Api.Services;
 
 namespace Flashcards.Api.Repositories
 {
     public class FlashcardRepository : IFlashcardRepository
     {
-        private static readonly ConcurrentDictionary<string, Flashcard> _flashCards = new ConcurrentDictionary<string, Flashcard>();
+        private static ConcurrentDictionary<string, Flashcard> _flashCards = new ConcurrentDictionary<string, Flashcard>();
+
+        public FlashcardRepository()
+        {
+            _flashCards = FlashcardSeeder.GetSeeds();
+        }
 
         public IEnumerable<Flashcard> GetAll()
         {

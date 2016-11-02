@@ -10,6 +10,8 @@ namespace Flashcards.Api.Models
         public Guid Id { get; set; }
         public string WordToCheck { get; set; }
         public string WordAnswerTitle { get; set; }
-        public string WordAnswerDescription { get; set; }
+        public string WordAnswerType { get; set; }
+        public string SentanceFrom { get; set; }
+        public string SentanceTo { get; set; }
     }
 }
