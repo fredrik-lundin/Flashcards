@@ -1,3 +1,27 @@
-<p>
-  {{Data | json}}
-</p>
+<section *ngIf='flashcard' class="cards-container">
+	<md-card>
+		<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
+		<md-card-title>{{ flashcard.wordToCheck }}</md-card-title>
+
+		<md-card-content>
+			<p class="in-a-sentance-title">Used in a sentance:</p>
+			<p class="in-a-sentance-content">{{ flashcard.sentanceFrom }}</p>
+		</md-card-content>
+
+		<md-card-actions align="end">
+			<button md-button (click)='showAnswer = true'>Show answer</button>
+		</md-card-actions>
+	</md-card>
+
+	<md-card *ngIf="showAnswer">
+		<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
+		<md-card-title>{{ flashcard.wordAnswerTitle }}</md-card-title>
+		<md-card-content>
+			<p class="in-a-sentance-title">Used in a sentance:</p>
+			<p class="in-a-sentance-content">{{ flashcard.sentanceTo }}</p>
+		</md-card-content>
+		<md-card-actions align align="end">
+			<button md-button (click)='nextCard()'>Next word</button>
+		</md-card-actions>
+	</md-card>
+</section>
