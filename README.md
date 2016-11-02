@@ -27,14 +27,22 @@ npm install -g angular-cli
 
 ### Run the Angular 2 project separatly (in dev mode)
 1. Open a temrinal and cd into the /src/Flashcards.Web
-2. Run the npm start command:
+2. Install npm packages:
+```bash
+npm install
+```
+3. Run the npm start command:
 ```bash
 npm start
 ```
 
 ### Run the projects together
 1. Open a temrinal and cd into the /src/Flashcards.Web
-2. Run the angular cli build command:
+2. Install npm packages:
+```bash
+npm install
+```
+3. Run the angular cli build command:
 ```bash
 ng build
 ```
