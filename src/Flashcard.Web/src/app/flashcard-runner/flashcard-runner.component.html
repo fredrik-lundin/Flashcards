@@ -9,10 +9,11 @@
 		</md-card-content>
 
 		<md-card-actions align="end">
-			<button md-button (click)='showAnswer = true'>Show answer</button>
+			<button md-fab (click)='showAnswer = true' *ngIf="!showAnswer">
+				<md-icon class="md-48">arrow_forward</md-icon>
+			</button>
 		</md-card-actions>
 	</md-card>
-
 	<md-card *ngIf="showAnswer">
 		<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
 		<md-card-title>{{ flashcard.wordAnswerTitle }}</md-card-title>
@@ -21,7 +22,9 @@
 			<p class="in-a-sentance-content">{{ flashcard.sentanceTo }}</p>
 		</md-card-content>
 		<md-card-actions align align="end">
-			<button md-button (click)='nextCard()'>Next word</button>
+			<button md-fab (click)='nextCard()'>
+				<md-icon class="md-48">arrow_downward</md-icon>
+			</button>
 		</md-card-actions>
 	</md-card>
 </section>
