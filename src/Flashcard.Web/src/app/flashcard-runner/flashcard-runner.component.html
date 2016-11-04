@@ -1,30 +1,37 @@
-<section *ngIf='flashcard' class="cards-container">
-	<md-card>
-		<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
-		<md-card-title>{{ flashcard.wordToCheck }}</md-card-title>
+<div class="flashcard-runner">
+	<h1>Flashcard testing</h1>
+	<h2>Follow the arrow to check your knowledge</h2>
+	<hr>
 
-		<md-card-content>
-			<p class="in-a-sentance-title">Used in a sentance:</p>
-			<p class="in-a-sentance-content">{{ flashcard.sentanceFrom }}</p>
-		</md-card-content>
+	<section [ngClass]="{'inactive-section': currentFlashcardId != flashcard.id}" *ngFor='let flashcard of flashcardsShowing'
+		class="cards-container">
+		<md-card>
+			<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
+			<md-card-title>{{ flashcard.wordToCheck }}</md-card-title>
 
-		<md-card-actions align="end">
-			<button md-fab (click)='showAnswer = true' *ngIf="!showAnswer">
+			<md-card-content>
+				<p class="in-a-sentance-title">Used in a sentance:</p>
+				<p class="in-a-sentance-content">{{ flashcard.sentanceFrom }}</p>
+			</md-card-content>
+
+			<md-card-actions align="end">
+				<button md-fab (click)='flashcard.showAnswer = true' *ngIf="!flashcard.showAnswer">
 				<md-icon class="md-48">arrow_forward</md-icon>
 			</button>
-		</md-card-actions>
-	</md-card>
-	<md-card *ngIf="showAnswer">
-		<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
-		<md-card-title>{{ flashcard.wordAnswerTitle }}</md-card-title>
-		<md-card-content>
-			<p class="in-a-sentance-title">Used in a sentance:</p>
-			<p class="in-a-sentance-content">{{ flashcard.sentanceTo }}</p>
-		</md-card-content>
-		<md-card-actions align align="end">
-			<button md-fab (click)='nextCard()'>
+			</md-card-actions>
+		</md-card>
+		<md-card *ngIf="flashcard.showAnswer">
+			<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
+			<md-card-title>{{ flashcard.wordAnswerTitle }}</md-card-title>
+			<md-card-content>
+				<p class="in-a-sentance-title">Used in a sentance:</p>
+				<p class="in-a-sentance-content">{{ flashcard.sentanceTo }}</p>
+			</md-card-content>
+			<md-card-actions align align="end">
+				<button md-fab (click)='nextCard()' *ngIf="currentFlashcardId == flashcard.id">
 				<md-icon class="md-48">arrow_downward</md-icon>
 			</button>
-		</md-card-actions>
-	</md-card>
-</section>
+			</md-card-actions>
+		</md-card>
+	</section>
+</div>

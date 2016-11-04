@@ -4,9 +4,34 @@
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
+  background-color: #DDD;
 }
 
 main {
     display: flex;
     justify-content: space-around;
+    width: 85%;
+    background-color: #FFF;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+  font-size: 3.4em;
+  font-weight: 300;
+}
+
+.main-content {
+  position: relative;
+  top: -80px;
+  display: flex;
+  justify-content: center;
+}
+
+.extended-toolbar {
+  background-color: #58309e;
+  height: 140px;
+}
+
+.inactive-section {
+  opacity: 0.4;
 }
