@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Flashcards.Api.Models;
 
@@ -16,11 +17,20 @@ namespace Flashcards.Api.Services
                 new Flashcard()
                 {
                     Id = Guid.NewGuid(),
+                    WordToCheck = "Fryd",
+                    WordAnswerTitle = "Pleasure, Delight",
+                    WordAnswerType = "noun",
+                    SentanceFrom = "Det er en fryd å jobbe med deg",
+                    SentanceTo = "It's a pleasure working with you"
+                },
+                new Flashcard()
+                {
+                    Id = Guid.NewGuid(),
                     WordToCheck = "Sykkel",
                     WordAnswerTitle = "Bicycle",
                     WordAnswerType = "noun",
                     SentanceFrom = "Jeg har en ny sykkel",
-                    SentanceTo = "I have a new bike"
+                    SentanceTo = "I have a new bicycle"
                 },
                 new Flashcard()
                 {
@@ -33,12 +43,7 @@ namespace Flashcards.Api.Services
                 }
             };
 
-            var dict = new ConcurrentDictionary<string, Flashcard>();
-            foreach (var flashcard in seeds)
-            {
-                dict[flashcard.Id.ToString()] = flashcard;
-            }
-            return dict;
+            return new ConcurrentDictionary<string, Flashcard>(seeds.ToDictionary(x => x.Id.ToString()));
         }
 
     }
