@@ -1,8 +1,10 @@
 <div class="flashcard-runner">
-	<h1>Flashcard testing</h1>
-	<h2>Follow the arrow to check your knowledge</h2>
-	<hr>
-
+	<div class="section-header">
+		<div>
+			<h1>Flashcard testing</h1>
+			<h4>Follow the arrow to navigate to the next cards</h4>
+		</div>
+	</div>
 	<section [ngClass]="{'inactive-section': currentFlashcardId != flashcard.id}" *ngFor='let flashcard of flashcardsShowing'
 		class="cards-container">
 		<md-card>

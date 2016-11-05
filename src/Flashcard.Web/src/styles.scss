@@ -1,18 +1,43 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 
+/*VARIABLES*/
+$box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+/*colors*/
+$white: #fff;
+$gray: #f7f7f7;
+$primary: #673ab7;
+/*breaking sizes*/
+$break-small: 720px;
+$break-medium: 1100px;
+
+/*ELEMENT STYLING*/
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
-  background-color: #DDD;
+  background-color: $gray;
 }
 
 main {
-    display: flex;
-    justify-content: space-around;
-    width: 85%;
-    background-color: #FFF;
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  position: relative;
+  top: -280px;
+  display: flex;
+  justify-content: center;
+  max-width: 1400px;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  margin: 30px;
+
+  @media screen and (max-width: $break-medium) {
+    position: initial;
+    margin: 0;
+    width: 700px;
+
+    @media screen and (max-width: $break-small) {
+      width: auto;
+    }
+  }
+  
 }
 
 h1 {
@@ -20,18 +45,74 @@ h1 {
   font-weight: 300;
 }
 
+md-card {
+    width: 280px;
+    height: 165px;
+    margin: 10px;
+}
+
+/*CLASSES*/
 .main-content {
-  position: relative;
-  top: -80px;
   display: flex;
   justify-content: center;
 }
 
-.extended-toolbar {
+.hero-image {
   background-color: #58309e;
-  height: 140px;
+  height: 500px;
+  max-width: 1800;
+  background-image: url('/assets/study-stock-image.jpeg');
+  background-size: 1800px 800px;
+  box-shadow: $box-shadow;
+
+  @media screen and (max-width: $break-medium) {
+    height: 150px;
+    background-size: $break-medium 300px;
+  }
+}
+
+div.section-header {
+  position: absolute;
+  top: -160px;
+  left: 50px;  
+  background-color: $primary;
+  color: $white;
+  padding: 20px;
+  box-shadow: $box-shadow; 
+
+  @media screen and (max-width: $break-medium) {
+    position: initial;
+    width: 700px;
+
+    @media screen and (max-width: $break-small) {
+      width: auto;
+    }
+
+  }
 }
 
 .inactive-section {
   opacity: 0.4;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 1000px;
+  padding: 30px;
+  
+  @media screen and (max-width: $break-medium) {
+    padding: 0;
+    min-width: 0;
+  }
+}
+
+.in-a-sentance-title {
+    color: #888;
+}
+
+.in-a-sentance-content {
+    font-size: 1.1em;
+    font-style: italic;
 }
