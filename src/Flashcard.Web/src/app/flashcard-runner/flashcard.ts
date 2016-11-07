@@ -4,8 +4,8 @@ export class Flashcard {
     wordToCheck: string;
     wordAnswerTitle: string;
     wordAnswerType: string;
-    sentanceFrom: string;
-    sentanceTo: string;
+    sentenceFrom: string;
+    sentenceTo: string;
 
     public showAnswer: boolean;
 

@@ -20,8 +20,8 @@ namespace Flashcards.Api.Services
                     WordToCheck = "Fryd",
                     WordAnswerTitle = "Pleasure, Delight",
                     WordAnswerType = "noun",
-                    SentanceFrom = "Det er en fryd å jobbe med deg",
-                    SentanceTo = "It's a pleasure working with you"
+                    SentenceFrom = "Det er en fryd å jobbe med deg",
+                    SentenceTo = "It's a pleasure working with you"
                 },
                 new Flashcard()
                 {
@@ -29,8 +29,8 @@ namespace Flashcards.Api.Services
                     WordToCheck = "Sykkel",
                     WordAnswerTitle = "Bicycle",
                     WordAnswerType = "noun",
-                    SentanceFrom = "Jeg har en ny sykkel",
-                    SentanceTo = "I have a new bicycle"
+                    SentenceFrom = "Jeg har en ny sykkel",
+                    SentenceTo = "I have a new bicycle"
                 },
                 new Flashcard()
                 {
@@ -38,8 +38,8 @@ namespace Flashcards.Api.Services
                     WordToCheck = "Spise",
                     WordAnswerTitle = "Eat, Dine",
                     WordAnswerType = "verb",
-                    SentanceFrom = "Du må spise nå",
-                    SentanceTo = "You have to eat now"
+                    SentenceFrom = "Du må spise nå",
+                    SentenceTo = "You have to eat now"
                 }
             };
 

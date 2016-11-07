@@ -11,7 +11,7 @@ namespace Flashcards.Api.Models
         public string WordToCheck { get; set; }
         public string WordAnswerTitle { get; set; }
         public string WordAnswerType { get; set; }
-        public string SentanceFrom { get; set; }
-        public string SentanceTo { get; set; }
+        public string SentenceFrom { get; set; }
+        public string SentenceTo { get; set; }
     }
 }

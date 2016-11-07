@@ -12,8 +12,8 @@
 			<md-card-title>{{ flashcard.wordToCheck }}</md-card-title>
 
 			<md-card-content>
-				<p class="in-a-sentance-title">Used in a sentance:</p>
-				<p class="in-a-sentance-content">{{ flashcard.sentanceFrom }}</p>
+				<p class="in-a-sentence-title">Used in a sentence:</p>
+				<p class="in-a-sentence-content">{{ flashcard.sentenceFrom }}</p>
 			</md-card-content>
 
 			<md-card-actions align="end">
@@ -26,8 +26,8 @@
 			<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
 			<md-card-title>{{ flashcard.wordAnswerTitle }}</md-card-title>
 			<md-card-content>
-				<p class="in-a-sentance-title">Used in a sentance:</p>
-				<p class="in-a-sentance-content">{{ flashcard.sentanceTo }}</p>
+				<p class="in-a-sentence-title">Used in a sentence:</p>
+				<p class="in-a-sentence-content">{{ flashcard.sentenceTo }}</p>
 			</md-card-content>
 			<md-card-actions align align="end">
 				<button md-fab (click)='nextCard()' *ngIf="currentFlashcardId == flashcard.id">
