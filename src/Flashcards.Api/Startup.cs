@@ -18,6 +18,7 @@ namespace Flashcards.Api
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile("appsettings.secret.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables()
                 .Build();
         }
         public IConfigurationRoot Configuration { get; }
