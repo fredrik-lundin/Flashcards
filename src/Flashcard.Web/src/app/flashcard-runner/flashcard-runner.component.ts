@@ -19,7 +19,7 @@ import { Flashcard } from './flashcard';
     trigger('fabTransition', [
       transition(':enter', [
         style({ transform: 'scale(0)' }),
-        animate('400ms ease-in', style({ transform: 'scale(1)' }))
+        animate('400ms 100ms ease-in', style({ transform: 'scale(1)' }))
       ]),
       transition(':leave', [
         style({ transform: 'scale(1)' }),

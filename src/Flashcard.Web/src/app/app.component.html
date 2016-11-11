@@ -1,10 +1,15 @@
 <md-toolbar color="primary">
-	<span>{{title}}</span>
+	<span class="logo-text">{{title}}</span>
+	<span class="fill-space-flex"></span>
+	
+	<a md-button class="toolbar-button" [routerLink]="['/flashcard-testing']" routerLinkActive="router-link-active">Flashcard testing</a>
+	<a md-button class="toolbar-button" [routerLink]="['/flashcard-manager']" routerLinkActive="router-link-active">Manage flashcards</a>
+	
 </md-toolbar>
 <div class="hero-image"></div>
 
 <div class="main-content">
 	<main>
-		<app-flashcard-runner></app-flashcard-runner>
+		<router-outlet></router-outlet>
 	</main>
 </div>
