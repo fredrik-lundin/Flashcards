@@ -20,6 +20,11 @@ npm install -g angular-cli
 ```
 * .NET Core
 
+### Set up the local DB
+1. Open Visual studio -> Tools -> Nuget package manager -> Nuget package manager console
+2. Run the following command: Update-Database
+3. Add your own sample data (will add seed later)
+
 ### Run the Web api
 1. Open the solution in Visual studio 2015
 2. Make sure the Flashcards.Api set as startup project

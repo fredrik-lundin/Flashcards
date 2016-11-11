@@ -244,3 +244,6 @@ ModelManifest.xml
 # VS Code configs
 .vscode/
 
+# Secret files
+*.secret.json
+

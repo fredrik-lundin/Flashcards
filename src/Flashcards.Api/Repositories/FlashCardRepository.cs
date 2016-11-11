@@ -1,50 +1,59 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Flashcards.Api.DataAccess;
 using Flashcards.Api.Models;
-using Flashcards.Api.Services;
 
 namespace Flashcards.Api.Repositories
 {
     public class FlashcardRepository : IFlashcardRepository
     {
-        private static ConcurrentDictionary<string, Flashcard> _flashCards = new ConcurrentDictionary<string, Flashcard>();
+        private readonly FlashcardsContext _context;
 
-        public FlashcardRepository()
+        public FlashcardRepository(FlashcardsContext context)
         {
-            _flashCards = FlashcardSeeder.GetSeeds();
+            _context = context;
         }
 
         public IEnumerable<Flashcard> GetAll()
         {
-            return _flashCards.Values;
+            return _context.Flashcards.ToList();
         }
 
         public void Add(Flashcard card)
         {
             card.Id = Guid.NewGuid();
-            _flashCards.TryAdd(card.Id.ToString(), card);
+            _context.Add(card);
+
+            _context.SaveChanges();
         }
 
         public Flashcard Get(string id)
         {
-            Flashcard card;
-            _flashCards.TryGetValue(id, out card);
-            return card;
+            return _context.Flashcards.Find(new Guid(id));
         }
 
         public Flashcard Remove(string id)
         {
+            var flashcard = Get(id);
+            if(flashcard == null) throw new ArgumentException($"Flashcard with id: {id} not found");
 
-            Flashcard card;
-            _flashCards.TryRemove(id, out card);
-            return card;
+            _context.Flashcards.Remove(flashcard);
+
+            _context.SaveChanges();
+            return flashcard;
         }
 
         public void Update(Flashcard card)
         {
-            if (_flashCards.ContainsKey(card.Id.ToString()))
-                _flashCards[card.Id.ToString()] = card;
+            if (!_context.Flashcards.Any(c => c.Id == card.Id))
+            {
+                throw new ArgumentException($"Flashcard with id: {card.Id} not found");
+            }
+
+            _context.Flashcards.Update(card);
+            _context.SaveChanges();
         }
     }
 }

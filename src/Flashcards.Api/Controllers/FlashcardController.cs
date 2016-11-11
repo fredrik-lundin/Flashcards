@@ -58,28 +58,30 @@ namespace Flashcards.Api.Controllers
                 return BadRequest();
             }
 
-            var oldCard = _repository.Get(id);
-            if (oldCard == null)
+            try
+            {
+                _repository.Update(card);
+                return new NoContentResult();
+            }
+            catch (ArgumentException)
             {
                 return NotFound();
             }
-
-            _repository.Update(card);
-            return new NoContentResult();
         }
 
         // DELETE api/flashcard/5
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            var card = _repository.Get(id);
-            if (card == null)
+            try
+            {
+                _repository.Remove(id);
+                return new NoContentResult();
+            }
+            catch (ArgumentException)
             {
                 return NotFound();
             }
-
-            _repository.Remove(id);
-            return new NoContentResult();
         }
     }
 }
