@@ -1,4 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  trigger,
+  style,
+  transition,
+  animate
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { FlashcardRunnerService } from './flashcard-runner.service';
@@ -7,6 +15,18 @@ import { Flashcard } from './flashcard';
 @Component({
   selector: 'app-flashcard-runner',
   templateUrl: './flashcard-runner.component.html',
+  animations: [
+    trigger('fabTransition', [
+      transition(':enter', [
+        style({ transform: 'scale(0)' }),
+        animate('400ms ease-in', style({ transform: 'scale(1)' }))
+      ]),
+      transition(':leave', [
+        style({ transform: 'scale(1)' }),
+        animate('400ms ease-out', style({ transform: 'scale(0)' }))
+      ])
+    ])
+  ],
   styleUrls: ['./flashcard-runner.component.scss']
 })
 export class FlashcardRunnerComponent implements OnInit, OnDestroy {

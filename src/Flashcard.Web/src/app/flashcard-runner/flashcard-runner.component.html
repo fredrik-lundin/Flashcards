@@ -7,33 +7,33 @@
 	</div>
 	<section [ngClass]="{'inactive-section': currentFlashcardId != flashcard.id}" *ngFor='let flashcard of flashcardsShowing'
 		class="cards-container">
-		<md-card>
-			<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
-			<md-card-title>{{ flashcard.wordToCheck }}</md-card-title>
+	    <md-card *ngIf="flashcard.showAnswer">
+	        <md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
+	        <md-card-title>{{ flashcard.wordAnswerTitle }}</md-card-title>
+	        <md-card-content>
+	            <p class="in-a-sentence-title">Used in a sentence:</p>
+	            <p class="in-a-sentence-content">{{ flashcard.sentenceTo }}</p>
+	        </md-card-content>
+	        <md-card-actions align align="end">
+	            <button md-fab [@fabTransition] (click)='nextCard()' *ngIf="currentFlashcardId == flashcard.id">
+	                <md-icon class="md-48">arrow_downward</md-icon>
+	            </button>
+	        </md-card-actions>
+	    </md-card>
+        <md-card>
+            <md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
+            <md-card-title>{{ flashcard.wordToCheck }}</md-card-title>
 
-			<md-card-content>
-				<p class="in-a-sentence-title">Used in a sentence:</p>
-				<p class="in-a-sentence-content">{{ flashcard.sentenceFrom }}</p>
-			</md-card-content>
+            <md-card-content>
+                <p class="in-a-sentence-title">Used in a sentence:</p>
+                <p class="in-a-sentence-content">{{ flashcard.sentenceFrom }}</p>
+            </md-card-content>
 
-			<md-card-actions align="end">
-				<button md-fab (click)='flashcard.showAnswer = true' *ngIf="!flashcard.showAnswer">
-				<md-icon class="md-48">arrow_forward</md-icon>
-			</button>
-			</md-card-actions>
-		</md-card>
-		<md-card *ngIf="flashcard.showAnswer">
-			<md-card-subtitle>{{ flashcard.wordAnswerType }}</md-card-subtitle>
-			<md-card-title>{{ flashcard.wordAnswerTitle }}</md-card-title>
-			<md-card-content>
-				<p class="in-a-sentence-title">Used in a sentence:</p>
-				<p class="in-a-sentence-content">{{ flashcard.sentenceTo }}</p>
-			</md-card-content>
-			<md-card-actions align align="end">
-				<button md-fab (click)='nextCard()' *ngIf="currentFlashcardId == flashcard.id">
-				<md-icon class="md-48">arrow_downward</md-icon>
-			</button>
-			</md-card-actions>
-		</md-card>
+            <md-card-actions align="end">
+                <button md-fab [@fabTransition] (click)='flashcard.showAnswer = true' *ngIf="!flashcard.showAnswer">
+                    <md-icon class="md-48">arrow_forward</md-icon>
+                </button>
+            </md-card-actions>
+        </md-card>
 	</section>
 </div>
