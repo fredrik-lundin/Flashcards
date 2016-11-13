@@ -25,11 +25,7 @@ import { FlashcardManagerComponent } from './flashcard-manager/flashcard-manager
     RouterModule.forRoot([
       { path: 'flashcard-testing', component: FlashcardRunnerComponent },
       { path: 'flashcard-manager', component: FlashcardManagerComponent },
-      {
-        path: '',
-        redirectTo: '/flashcard-testing',
-        pathMatch: 'full'
-      }
+      { path: '', redirectTo: '/flashcard-testing', pathMatch: 'full' }
     ]),
     MaterialModule.forRoot()
   ],
