@@ -1,12 +1,14 @@
 import {
   Component,
   OnInit,
-  OnDestroy,
+  OnDestroy
+} from '@angular/core';
+import {
   trigger,
   style,
   transition,
   animate
-} from '@angular/core';
+} from '@angular/animations';
 import { Subscription } from 'rxjs';
 
 import { FlashcardRunnerService } from './flashcard-runner.service';

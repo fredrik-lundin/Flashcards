@@ -1,0 +1,25 @@
+<form class="flashcard-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <md-card>
+    <md-toolbar color="warn" *ngIf="addedCardErrorMessage"><span>{{ addedCardErrorMessage }}</span></md-toolbar>
+    <md-toolbar color="accent" *ngIf="addedCardSuccessMessage"><span>{{ addedCardSuccessMessage }}</span></md-toolbar>
+    <md-progress-bar *ngIf="addingCard" mode="indeterminate"></md-progress-bar>
+    <md-input-container>
+      <input mdInput ngModel name="wordToCheck" placeholder="Word in Norwegian" class="flex-basis-40" required />
+    </md-input-container>
+    <md-input-container>
+      <input mdInput ngModel name="wordAnswerTitle" placeholder="Word in English" class="flex-basis-40" required />
+    </md-input-container>
+    <md-input-container>
+      <input mdInput ngModel name="sentenceFrom" placeholder="Example sentance in Norwegian" required />
+    </md-input-container>
+    <md-input-container>
+      <input mdInput ngModel name="sentenceTo" placeholder="Example sentance in English" required />
+    </md-input-container>
+    <md-input-container>
+      <input mdInput ngModel name="wordAnswerType" placeholder="Word type" required />
+    </md-input-container>
+
+    <button md-raised-button type="submit" color="accent" [disabled]="form.invalid">Save</button>
+    <button md-raised-button type="button" (click)="onCancel()">Cancel</button>
+  </md-card>
+</form>

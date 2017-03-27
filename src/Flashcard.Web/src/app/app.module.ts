@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -11,15 +12,18 @@ import { AppComponent } from './app.component';
 import { FlashcardRunnerComponent } from './flashcard-runner/flashcard-runner.component';
 import { FlashcardRunnerService } from './flashcard-runner/flashcard-runner.service';
 import { FlashcardManagerComponent } from './flashcard-manager/flashcard-manager.component';
+import { FlashcardFormComponent } from './flashcard-manager/flashcard-form/flashcard-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FlashcardRunnerComponent,
-    FlashcardManagerComponent
+    FlashcardManagerComponent,
+    FlashcardFormComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
@@ -27,7 +31,7 @@ import { FlashcardManagerComponent } from './flashcard-manager/flashcard-manager
       { path: 'flashcard-manager', component: FlashcardManagerComponent },
       { path: '', redirectTo: '/flashcard-testing', pathMatch: 'full' }
     ]),
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   providers: [FlashcardRunnerService],
   bootstrap: [AppComponent]

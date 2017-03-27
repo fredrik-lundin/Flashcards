@@ -9,19 +9,6 @@
 		<button md-fab (click)="showNewCardForm = true" *ngIf="!showNewCardForm">
 			<md-icon>add</md-icon>
 		</button>
-		<form class="flashcard-form" *ngIf="showNewCardForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
-			<md-card>
-				<md-toolbar color="warn" *ngIf="addedCardErrorMessage"><span>{{ addedCardErrorMessage }}</span></md-toolbar>
-				<md-toolbar color="accent" *ngIf="addedCardSuccessMessage"><span>{{ addedCardSuccessMessage }}</span></md-toolbar>
-				<md-input ngModel name="wordToCheck" placeholder="Word in Norwegian" class="flex-basis-40" required></md-input>
-				<md-input ngModel name="wordAnswerTitle" placeholder="Word in English" class="flex-basis-40" required></md-input>
-				<md-input ngModel name="sentenceFrom" placeholder="Example sentance in Norwegian" required></md-input>
-				<md-input ngModel name="sentenceTo" placeholder="Example sentance in English" required></md-input>
-				<md-input ngModel name="wordAnswerType" placeholder="Word type" required></md-input>
-
-				<button md-raised-button type="submit" color="accent" [disabled]="form.invalid">Save</button>
-				<button md-raised-button (click)="showNewCardForm = false">Cancel</button>
-			</md-card>
-		</form>
+		<app-flashcard-form *ngIf="showNewCardForm" (cancelForm)="showNewCardForm = false"></app-flashcard-form>
 	</section>
 </div>
