@@ -6,8 +6,8 @@ The first stage will be to get all very basic and simple funcionality in.
 
 ## Technologies
 This is an aspnet core application consisting of two main parts:
-* An api written with .net Web Api
-* A web app written in Angular 2 (managed by Angular CLI, embeded inside a .net Class library project)
+* An api implemented with .NET CORE
+* A web app written in Angular (managed by Angular CLI, embeded inside a .net Class library project)
 
 ## Run the solution
 
